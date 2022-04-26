@@ -1,7 +1,6 @@
 # Basic Network Design & Segmentation
 
-This repo supports session #1 of my *Azure Networking Crash Course* live stream series on YouTube back in 2022:
-https://www.youtube.com/watch?v=etQMC2O274c
+This repo supports session #1 of my **[Azure Networking Crash Course](https://www.youtube.com/watch?v=etQMC2O274c)** live stream series on [YouTube](https://www.youtube.com/channel/UCuoEOqepPoBrnpL5C3P6Ehg) back in **2022**.
 
 This first session explains the basics of cloud networking (with a heavy emphasis on Azure of course) and I walk you through building a basic Azure Virtual Network (VNet) while teaching foundational concepts you need to know along the way.
 
