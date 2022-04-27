@@ -78,7 +78,7 @@
       {
           "type": "Microsoft.Network/publicIPAddresses",
           "apiVersion": "2020-11-01",
-          "name": "['SQL-IP']",
+          "name": "SQL-IP",
           "location": "westus2",
           "sku": {
               "name": "Basic",
@@ -95,7 +95,7 @@
       {
           "type": "Microsoft.Network/publicIPAddresses",
           "apiVersion": "2020-11-01",
-          "name": "['WEB-IP']",
+          "name": "WEB-IP",
           "location": "westus2",
           "sku": {
               "name": "Basic",
@@ -182,15 +182,8 @@
                   "adminPassword": "[parameters('admin_password')]",
                   "linuxConfiguration": {
                       "disablePasswordAuthentication": false,
-                      "provisionVMAgent": true,
-                      "patchSettings": {
-                          "patchMode": "ImageDefault",
-                          "assessmentMode": "ImageDefault"
-                      }
-                  },
-                  "secrets": [],
-                  "allowExtensionOperations": true,
-                  "requireGuestProvisionSignal": true
+                      "authenticationType": "password"
+                  }
               },
               "networkProfile": {
                   "networkInterfaces": [
@@ -247,15 +240,8 @@
                   "adminPassword": "[parameters('admin_password')]",
                   "linuxConfiguration": {
                       "disablePasswordAuthentication": false,
-                      "provisionVMAgent": true,
-                      "patchSettings": {
-                          "patchMode": "ImageDefault",
-                          "assessmentMode": "ImageDefault"
-                      }
-                  },
-                  "secrets": [],
-                  "allowExtensionOperations": true,
-                  "requireGuestProvisionSignal": true
+                      "authenticationType": "password"
+                  }
               },
               "networkProfile": {
                   "networkInterfaces": [
