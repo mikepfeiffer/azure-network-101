@@ -4,7 +4,7 @@ Here's how to use the [template](https://github.com/mikepfeiffer/azure-network-1
 
 ## Deploy via Azure CLI
 
-### Create a Resource Group
+### 1. Create a Resource Group
 
 ```
 az group create \
@@ -12,7 +12,7 @@ az group create \
   --location westus2
 ```
 
-### Deploy the Template
+### 2. Deploy the Template
 
 ```
 az deployment group create \
@@ -22,6 +22,8 @@ az deployment group create \
 ```
 
 ## Deploy via Azure Portal
+
+Click the button below to deploy the template.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmikepfeiffer%2Fazure-domain-controller%2Fmaster%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
