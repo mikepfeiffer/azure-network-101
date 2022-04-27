@@ -181,8 +181,7 @@
                   "adminUsername": "[parameters('admin_username')]",
                   "adminPassword": "[parameters('admin_password')]",
                   "linuxConfiguration": {
-                      "disablePasswordAuthentication": false,
-                      "authenticationType": "password"
+                      "disablePasswordAuthentication": false
                   }
               },
               "networkProfile": {
@@ -239,8 +238,7 @@
                   "adminUsername": "[parameters('admin_username')]",
                   "adminPassword": "[parameters('admin_password')]",
                   "linuxConfiguration": {
-                      "disablePasswordAuthentication": false,
-                      "authenticationType": "password"
+                      "disablePasswordAuthentication": false
                   }
               },
               "networkProfile": {
