@@ -15,7 +15,7 @@
           "type": "String"
       },
       "admin_password": {
-          "defaultValue": "WEB",
+          "defaultValue": "@azur3P@ssw0rd2022!",
           "type": "secureString"
       }    
   },
