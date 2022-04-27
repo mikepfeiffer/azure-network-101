@@ -9,7 +9,7 @@ Here are the hands-on projects in this crash course:
 3. [Load Balancing & Secure Hybrid Networking](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%203)
 4. [Infrastructure as Code & Automation](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%204)
 
-Here's the Google slide deck for this crash course series:
+The Google slide deck for this crash course series is available at 
 [docs.google.com](https://docs.google.com/presentation/d/1X8aJb24e89HeLSWU0gvbELgIHIkfqQFdUXFbfG0RHVg/edit?usp=sharing)
 
 Thanks for watching and don't forget to **[subscribe](https://www.youtube.com/channel/UCuoEOqepPoBrnpL5C3P6Ehg)** to my YouTube channel 📺
