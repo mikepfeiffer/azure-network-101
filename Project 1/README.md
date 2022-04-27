@@ -23,6 +23,8 @@ Next, you'll need servers to act as the web front-end and database servers.
 * Deploy an Ubuntu 18.04 LTS VM into your "WEB" subnet and name this servers "WEB-001"
 * Deploy an Ubuntu 18.04 LTS VM into your "SQL" subnet and name this servers "SQL-001"
 
+*⚠️ Important Note: Make sure you deploy these servers into the correct subnet.*
+
 ## 3. Configure Your Web Server
 
 Open the cloud shell and SSH to your WEB server. Run the following commands to update the package sources on the VM and install Apache, PHP, and MySql client libraries for PHP.
@@ -114,7 +116,7 @@ Deploy a new Bastion to this subnet and verify that you can still SSH to your se
 
 ## Bonus Points
 
-Implement public DNS
+Implement public DNS by registering an [App Service Domain](https://docs.microsoft.com/en-us/azure/app-service/manage-custom-dns-buy-domain) and mapping a [DNS record](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli) to the public IP of your web server.
 
 ## Recommended Reading
 
