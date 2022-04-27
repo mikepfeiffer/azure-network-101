@@ -5,9 +5,9 @@ This is the official repo for my **Azure Networking Crash Course** live stream s
 Here are the hands-on projects in this crash course:
 
 1. [Basic Network Design & Segmentation](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%201)
-2. Hub-Spoke Network Topology & Shared Services
-3. Load Balancing & Secure Hybrid Networking
-4. Troubleshooting, IaC, & Automation
+2. [Hub-Spoke Network Topology & Shared Services](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%202)
+3. [Load Balancing & Secure Hybrid Networking](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%203)
+4. [Troubleshooting, IaC, & Automation](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%204)
 
 Thanks for watching and don't forget to **[subscribe](https://www.youtube.com/channel/UCuoEOqepPoBrnpL5C3P6Ehg)** to my YouTube channel 📺
 
