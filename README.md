@@ -1,6 +1,6 @@
 # Azure Networking Crash Course
 
-This is the official repo for my **[Azure Networking Crash Course](https://www.youtube.com/watch?v=etQMC2O274c)** live stream series on [YouTube](https://www.youtube.com/channel/UCuoEOqepPoBrnpL5C3P6Ehg).
+This is the official repo for my **Azure Networking Crash Course** live stream series on YouTube.
 
 To get the most out of this crash course, I recommend that you follow along and complete the following projects:
 
