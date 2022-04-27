@@ -23,7 +23,7 @@ Next, you'll need servers to act as the web front-end and database servers.
 * Deploy an Ubuntu 18.04 LTS VM into your "WEB" subnet and name this servers "WEB-001"
 * Deploy an Ubuntu 18.04 LTS VM into your "SQL" subnet and name this servers "SQL-001"
 
-*Note: Make sure you deploy these servers into the correct subnet.*
+*Note: Triple check and sure you deploy these servers into the correct subnets.*
 
 ## 3. Configure Your Web Server
 
