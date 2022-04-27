@@ -4,6 +4,8 @@ In this project you'll build a traditional two-tier web app with database and fr
 
 ## 1. Build and Deploy your VNET
 
+Create a new VNET in the WEST US 2 region with the following configuration.
+
 | Components  | CIDRs                |
 | ----------- | -----------          |
 | VNET        | 192.168.0.0/16       |
@@ -14,10 +16,14 @@ In this project you'll build a traditional two-tier web app with database and fr
 
 ## 2. Deploy Linux VMs
 
+Next, you'll need servers to act as the web front-end and database servers.
+
 * Deploy an Ubuntu 18.04 LTS VM into your "WEB" subnet and name this servers "WEB-001"
 * Deploy an Ubuntu 18.04 LTS VM into your "SQL" subnet and name this servers "SQL-001"
 
-## 3. SSH to Your WEB Server
+## 3. Configure Your Web Server
+
+Open the cloud shell and SSH to your WEB server. Run the following commands to update the package sources on the VM and install Apache, PHP, and MySql client libraries for PHP.
 
 ```
 apt update -y && apt upgrade -y
@@ -27,21 +33,34 @@ apt install php php-mysql -y
 
 ## 4. Check Status
 
+After Apache is installed verify that the service is running using the following command.
+
 ```
 systemctl status apache2
 ```
 
-## 5. SSH to SQL
+## 5. Configure Your SQL Server
+
+Go back to the cloud shell and SSH to your SQL server. Run the following commands to update the package sources on the VM and install MySQL.
 
 ```
 apt update -y && apt upgrade -y
 apt install mariadb-server mariadb-client -y
+```
+
+## 6. Update MySQL
+
+We need to allow connections from the WEB server in the "WEB" subnet to connect to MySQL server in the "SQL" subnet. Edit the *50-server.cnf* file and change the SQL server IP to the private local IP (192.168.2.4). Use the first command to edit the file with *nano* and then restart MySQL and allow connectivity via the local firewall.
+
+```
 nano /etc/mysql/mariadb.conf.d/50-server.cnf
 systemctl restart mysql
 ufw allow mysql
 ```
 
-## 6. SQL setup
+## 7. Create a Database
+
+Open the cloud shell and SSH to the SQL server. Run the following commands to create a new database for wordpress. Notice that we're granting access to a user at a specific IP address... this is the private IP of the web server.
 
 ```
 mysql -u root -p
@@ -52,7 +71,9 @@ FLUSH PRIVILEGES;
 Exit;
 ```
 
-## 7. Install Wordpress on WEB Server
+## 8. Install Wordpress on WEB Server
+
+Open the cloud shell and SSH to the WEB server. Run the following commands to download and install wordpress.
 
 ```
 cd /tmp && wget https://wordpress.org/latest.tar.gz
@@ -63,6 +84,35 @@ chmod -R 755 /var/www/html/
 mkdir /var/www/html/wp-content/uploads
 chown -R www-data:www-data /var/www/html/wp-content/uploads/
 ```
+
+Navigate to the public IP of your web server. Can you get to the wordpress site? If not, check your **WEB-NSG** security rules.
+
+## 9. Lock Down the Network
+
+You should have wordpress working at this point, but there's a lot of issues with the current setup. Let's implement some best practices.
+
+* Make sure the IPs on your servers are configured staticitcally
+* Disassociate the NSGs from your servers
+* Create ASGs for both "WEB" and "SQL"
+* Configure the SQL NSG to permit MySQL traffic from only the "WEB" ASG
+* Associate your NSGs with their respective subnets (WEB, SQL)
+* Disassociate the public IP from your SQL server
+
+Also, we shouldn't SSH directly to the web server. Remove SSH from the web server NSG and make sure it only permits HTTP application traffic. In a future project we'll setup load balancers for the front-end tier.
+
+## 10. Setup Remote Access
+
+Add a new subnet to your VNET so we can deploy Azure Bastion for remote access.
+
+| Subnet Name        | CIDR            |
+| -----------        | -----------     |
+| AzureBastionSubnet | 192.168.0.0/26  |
+
+Deploy a new Bastion to this subnet and verify that you can still SSH to your servers through it.
+
+## Bonus Points
+
+Implement public DNS
 
 ## Recommended Reading
 
