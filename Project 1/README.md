@@ -101,7 +101,7 @@ chown -R www-data:www-data /var/www/html/wp-content/uploads/
 
 Navigate to the public IP of your web server. Can you get to the wordpress site? If not, check your **WEB-NSG** security rules.
 
-## 9. Lock Down the Network
+## 9. Optimize the Configuration
 
 You should have wordpress working at this point, but there's a lot of issues with the current setup. Let's implement some best practices.
 
@@ -112,7 +112,7 @@ You should have wordpress working at this point, but there's a lot of issues wit
 * Associate your NSGs with their respective subnets (WEB, SQL) in the VNET
 * Disassociate the public IP from your SQL server
 
-Also, we shouldn't SSH directly to the servers. Remove SSH from the web server NSG and make sure it only permits HTTP application traffic. At this stage it should already be disabled for SQL. In a future project we'll setup load balancers for the web tier.
+Also... we shouldn't SSH directly to the servers. Remove the SSH rule from the web server NSG and make sure it only permits HTTP application traffic. At this stage it should already be disabled for SQL. In a future project we'll setup load balancers for the web tier.
 
 ## 10. Setup Remote Access
 
