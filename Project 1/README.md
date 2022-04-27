@@ -1,6 +1,14 @@
 # Basic Network Design & Segmentation
 
-TBD
+1. Deploy VNET
+2. SSH to WEB Server
+
+`
+apt update -y && apt upgrade -y
+apt install apache2 -y
+apt install php php-mysql -y
+systemctl status apache2
+`
 
 ## Recommended Reading
 
