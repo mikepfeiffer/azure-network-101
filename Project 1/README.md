@@ -17,7 +17,7 @@ In this project you'll build a traditional two-tier web app with database and fr
 * Deploy an Ubuntu 18.04 LTS VM into your "WEB" subnet and name this servers "WEB-001"
 * Deploy an Ubuntu 18.04 LTS VM into your "SQL" subnet and name this servers "SQL-001"
 
-2. SSH to WEB Server
+## 3. SSH to Your WEB Server
 
 ```
 apt update -y && apt upgrade -y
@@ -25,13 +25,13 @@ apt install apache2 -y
 apt install php php-mysql -y
 ```
 
-Check Status
+## 4. Check Status
 
 ```
 systemctl status apache2
 ```
 
-3. SSH to SQL
+## 5. SSH to SQL
 
 ```
 apt update -y && apt upgrade -y
@@ -41,7 +41,7 @@ systemctl restart mysql
 ufw allow mysql
 ```
 
-SQL setup
+## 6. SQL setup
 
 ```
 mysql -u root -p
@@ -52,7 +52,7 @@ FLUSH PRIVILEGES;
 Exit;
 ```
 
-4. Install Wordpress on WEB Server
+## 7. Install Wordpress on WEB Server
 
 ```
 cd /tmp && wget https://wordpress.org/latest.tar.gz
