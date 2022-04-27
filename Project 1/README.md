@@ -1,6 +1,6 @@
 # Single VNET Design & Segmentation
 
-In this project you'll build a traditional two-tier web app with database and front-end servers.
+In this project you'll build a traditional two-tier web app with database and front-end servers. To keep things simple we'll use Wordpress.
 
 ## 1. Build and Deploy your VNET
 
