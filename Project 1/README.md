@@ -124,7 +124,7 @@ Add a new subnet to your VNET so we can deploy Azure Bastion for remote access.
 
 Deploy a new Bastion to this subnet and verify that you can still SSH to your servers through it.
 
-## Bonus Points
+## Bonus Points: Public DNS
 
 Implement public DNS by registering an [App Service Domain](https://docs.microsoft.com/en-us/azure/app-service/manage-custom-dns-buy-domain) and mapping a [DNS record](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli) to the public IP of your web server.
 
