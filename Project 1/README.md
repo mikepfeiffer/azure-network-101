@@ -1,4 +1,4 @@
-# Basic Network Design & Segmentation
+# Single VNET Design & Segmentation
 
 1. Deploy VNET
 2. SSH to WEB Server
