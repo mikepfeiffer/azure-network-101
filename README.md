@@ -9,7 +9,7 @@ Here are the hands-on projects in this crash course:
 3. Load Balancing & Secure Hybrid Networking
 4. Troubleshooting, IaC, & Automation
 
-Thanks for watching and don't forget to [subscribe](https://www.youtube.com/channel/UCuoEOqepPoBrnpL5C3P6Ehg) to my YouTube channel 📺
+Thanks for watching and don't forget to **[subscribe](https://www.youtube.com/channel/UCuoEOqepPoBrnpL5C3P6Ehg)** to my YouTube channel 📺
 
 ## Author
 
