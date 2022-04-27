@@ -1,6 +1,22 @@
 # Single VNET Design & Segmentation
 
-1. Deploy VNET
+In this project you'll build a traditional two-tier web app with database and front-end servers.
+
+1. Build and Deploy your VNET
+
+| Components  | CIDRs                |
+| ----------- | -----------          |
+| VNET        | 192.168.0.0/16       |
+| WEB Subnet  | 192.168.1.0/24       |
+| SQL Subnet  | 192.168.2.0/24       |
+
+*Note: You can use the ARM template in the /templates folder of this repo to build the VNET and the servers in step 2 below.*
+
+2. Deploy Linux VMs
+
+* Deploy an Ubuntu 18.04 LTS VM into your "WEB" subnet and name this servers "WEB-001"
+* Deploy an Ubuntu 18.04 LTS VM into your "SQL" subnet and name this servers "SQL-001"
+
 2. SSH to WEB Server
 
 ```
