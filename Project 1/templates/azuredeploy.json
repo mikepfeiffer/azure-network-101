@@ -2,49 +2,29 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "virtualMachines_SQL_name": {
+      "sql_server_name": {
           "defaultValue": "SQL",
           "type": "String"
       },
-      "virtualMachines_WEB_name": {
+      "web_server_name": {
           "defaultValue": "WEB",
           "type": "String"
       },
-      "networkInterfaces_sql499_name": {
-          "defaultValue": "sql499",
+      "admin_username": {
+          "defaultValue": "sysadmin",
           "type": "String"
       },
-      "networkInterfaces_web207_name": {
-          "defaultValue": "web207",
-          "type": "String"
-      },
-      "publicIPAddresses_SQL_ip_name": {
-          "defaultValue": "SQL-ip",
-          "type": "String"
-      },
-      "publicIPAddresses_WEB_ip_name": {
-          "defaultValue": "WEB-ip",
-          "type": "String"
-      },
-      "networkSecurityGroups_SQL_nsg_name": {
-          "defaultValue": "SQL-nsg",
-          "type": "String"
-      },
-      "networkSecurityGroups_WEB_nsg_name": {
-          "defaultValue": "WEB-nsg",
-          "type": "String"
-      },
-      "virtualNetworks_wordpress_vnet_name": {
-          "defaultValue": "wordpress-vnet",
-          "type": "String"
-      }
+      "admin_password": {
+          "defaultValue": "WEB",
+          "type": "secureString"
+      }    
   },
   "variables": {},
   "resources": [
       {
           "type": "Microsoft.Network/networkSecurityGroups",
           "apiVersion": "2020-11-01",
-          "name": "[parameters('networkSecurityGroups_SQL_nsg_name')]",
+          "name": "SQL-NSG",
           "location": "westus2",
           "properties": {
               "securityRules": [
@@ -71,7 +51,7 @@
       {
           "type": "Microsoft.Network/networkSecurityGroups",
           "apiVersion": "2020-11-01",
-          "name": "[parameters('networkSecurityGroups_WEB_nsg_name')]",
+          "name": "WEB-NSG",
           "location": "westus2",
           "properties": {
               "securityRules": [
@@ -98,7 +78,7 @@
       {
           "type": "Microsoft.Network/publicIPAddresses",
           "apiVersion": "2020-11-01",
-          "name": "[parameters('publicIPAddresses_SQL_ip_name')]",
+          "name": "['SQL-IP']",
           "location": "westus2",
           "sku": {
               "name": "Basic",
@@ -115,7 +95,7 @@
       {
           "type": "Microsoft.Network/publicIPAddresses",
           "apiVersion": "2020-11-01",
-          "name": "[parameters('publicIPAddresses_WEB_ip_name')]",
+          "name": "['WEB-IP']",
           "location": "westus2",
           "sku": {
               "name": "Basic",
@@ -132,7 +112,7 @@
       {
           "type": "Microsoft.Network/virtualNetworks",
           "apiVersion": "2020-11-01",
-          "name": "[parameters('virtualNetworks_wordpress_vnet_name')]",
+          "name": "wp-vnet",
           "location": "westus2",
           "properties": {
               "addressSpace": {
@@ -167,10 +147,10 @@
       {
           "type": "Microsoft.Compute/virtualMachines",
           "apiVersion": "2021-11-01",
-          "name": "[parameters('virtualMachines_SQL_name')]",
+          "name": "[parameters('sql_server_name')]",
           "location": "westus2",
           "dependsOn": [
-              "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_sql499_name'))]"
+              "[resourceId('Microsoft.Network/networkInterfaces', 'SQL-NIC')]"
           ],
           "properties": {
               "hardwareProfile": {
@@ -185,12 +165,12 @@
                   },
                   "osDisk": {
                       "osType": "Linux",
-                      "name": "[concat(parameters('virtualMachines_SQL_name'), '_OsDisk_1_1734ef375e974da68a12130ae3a4f500')]",
+                      "name": "[concat(parameters('sql_server_name'), '_OsDisk_1_1734ef375e974da68a12130ae3a4f500')]",
                       "createOption": "FromImage",
                       "caching": "ReadWrite",
                       "managedDisk": {
                           "storageAccountType": "Premium_LRS",
-                          "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_SQL_name'), '_OsDisk_1_1734ef375e974da68a12130ae3a4f500'))]"
+                          "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('sql_server_name'), '_OsDisk_1_1734ef375e974da68a12130ae3a4f500'))]"
                       },
                       "deleteOption": "Delete",
                       "diskSizeGB": 30
@@ -198,8 +178,9 @@
                   "dataDisks": []
               },
               "osProfile": {
-                  "computerName": "[parameters('virtualMachines_SQL_name')]",
-                  "adminUsername": "sysadmin",
+                  "computerName": "[parameters('sql_server_name')]",
+                  "adminUsername": "[parameters('admin_username')]",
+                  "adminPassword": "[parameters('admin_password')]",
                   "linuxConfiguration": {
                       "disablePasswordAuthentication": false,
                       "provisionVMAgent": true,
@@ -215,7 +196,7 @@
               "networkProfile": {
                   "networkInterfaces": [
                       {
-                          "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_sql499_name'))]",
+                          "id": "[resourceId('Microsoft.Network/networkInterfaces', 'SQL-NIC')]",
                           "properties": {
                               "deleteOption": "Delete"
                           }
@@ -232,10 +213,10 @@
       {
           "type": "Microsoft.Compute/virtualMachines",
           "apiVersion": "2021-11-01",
-          "name": "[parameters('virtualMachines_WEB_name')]",
+          "name": "[parameters('web_server_name')]",
           "location": "westus2",
           "dependsOn": [
-              "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_web207_name'))]"
+              "[resourceId('Microsoft.Network/networkInterfaces', 'WEB-NIC')]"
           ],
           "properties": {
               "hardwareProfile": {
@@ -250,12 +231,12 @@
                   },
                   "osDisk": {
                       "osType": "Linux",
-                      "name": "[concat(parameters('virtualMachines_WEB_name'), '_OsDisk_1_78cee991011a492ba6a80751c22e7eff')]",
+                      "name": "[concat(parameters('web_server_name'), '_OsDisk_1_78cee991011a492ba6a80751c22e7eff')]",
                       "createOption": "FromImage",
                       "caching": "ReadWrite",
                       "managedDisk": {
                           "storageAccountType": "Premium_LRS",
-                          "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_WEB_name'), '_OsDisk_1_78cee991011a492ba6a80751c22e7eff'))]"
+                          "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('web_server_name'), '_OsDisk_1_78cee991011a492ba6a80751c22e7eff'))]"
                       },
                       "deleteOption": "Delete",
                       "diskSizeGB": 30
@@ -263,8 +244,9 @@
                   "dataDisks": []
               },
               "osProfile": {
-                  "computerName": "[parameters('virtualMachines_WEB_name')]",
-                  "adminUsername": "sysadmin",
+                  "computerName": "[parameters('web_server_name')]",
+                  "adminUsername": "[parameters('admin_username')]",
+                  "adminPassword": "[parameters('admin_password')]",
                   "linuxConfiguration": {
                       "disablePasswordAuthentication": false,
                       "provisionVMAgent": true,
@@ -280,7 +262,7 @@
               "networkProfile": {
                   "networkInterfaces": [
                       {
-                          "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_web207_name'))]",
+                          "id": "[resourceId('Microsoft.Network/networkInterfaces', 'WEB-NIC')]",
                           "properties": {
                               "deleteOption": "Delete"
                           }
@@ -297,9 +279,9 @@
       {
           "type": "Microsoft.Network/networkSecurityGroups/securityRules",
           "apiVersion": "2020-11-01",
-          "name": "[concat(parameters('networkSecurityGroups_SQL_nsg_name'), '/SSH')]",
+          "name": "[concat('SQL-NSG', '/SSH')]",
           "dependsOn": [
-              "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SQL_nsg_name'))]"
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'SQL-NSG')]"
           ],
           "properties": {
               "protocol": "TCP",
@@ -319,9 +301,9 @@
       {
           "type": "Microsoft.Network/networkSecurityGroups/securityRules",
           "apiVersion": "2020-11-01",
-          "name": "[concat(parameters('networkSecurityGroups_WEB_nsg_name'), '/SSH')]",
+          "name": "[concat('WEB-NSG', '/SSH')]",
           "dependsOn": [
-              "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_WEB_nsg_name'))]"
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'WEB-NSG')]"
           ],
           "properties": {
               "protocol": "TCP",
@@ -341,9 +323,9 @@
       {
           "type": "Microsoft.Network/virtualNetworks/subnets",
           "apiVersion": "2020-11-01",
-          "name": "[concat(parameters('virtualNetworks_wordpress_vnet_name'), '/SQL')]",
+          "name": "[concat('wp-vnet', '/SQL')]",
           "dependsOn": [
-              "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_wordpress_vnet_name'))]"
+              "[resourceId('Microsoft.Network/virtualNetworks', 'wp-vnet')]"
           ],
           "properties": {
               "addressPrefix": "192.168.2.0/24",
@@ -355,9 +337,9 @@
       {
           "type": "Microsoft.Network/virtualNetworks/subnets",
           "apiVersion": "2020-11-01",
-          "name": "[concat(parameters('virtualNetworks_wordpress_vnet_name'), '/WEB')]",
+          "name": "[concat('wp-vnet', '/WEB')]",
           "dependsOn": [
-              "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_wordpress_vnet_name'))]"
+              "[resourceId('Microsoft.Network/virtualNetworks', 'wp-vnet')]"
           ],
           "properties": {
               "addressPrefix": "192.168.1.0/24",
@@ -369,12 +351,12 @@
       {
           "type": "Microsoft.Network/networkInterfaces",
           "apiVersion": "2020-11-01",
-          "name": "[parameters('networkInterfaces_sql499_name')]",
+          "name": "SQL-NIC",
           "location": "westus2",
           "dependsOn": [
-              "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_SQL_ip_name'))]",
-              "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_wordpress_vnet_name'), 'SQL')]",
-              "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SQL_nsg_name'))]"
+              "[resourceId('Microsoft.Network/publicIPAddresses', 'SQL-IP')]",
+              "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'wp-vnet', 'SQL')]",
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'SQL-NSG')]"
           ],
           "properties": {
               "ipConfigurations": [
@@ -384,10 +366,10 @@
                           "privateIPAddress": "192.168.2.4",
                           "privateIPAllocationMethod": "Dynamic",
                           "publicIPAddress": {
-                              "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_SQL_ip_name'))]"
+                              "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'SQL-IP')]"
                           },
                           "subnet": {
-                              "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_wordpress_vnet_name'), 'SQL')]"
+                              "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'wp-vnet', 'SQL')]"
                           },
                           "primary": true,
                           "privateIPAddressVersion": "IPv4"
@@ -400,19 +382,19 @@
               "enableAcceleratedNetworking": true,
               "enableIPForwarding": false,
               "networkSecurityGroup": {
-                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SQL_nsg_name'))]"
+                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', 'SQL-NSG')]"
               }
           }
       },
       {
           "type": "Microsoft.Network/networkInterfaces",
           "apiVersion": "2020-11-01",
-          "name": "[parameters('networkInterfaces_web207_name')]",
+          "name": "WEB-NIC",
           "location": "westus2",
           "dependsOn": [
-              "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_WEB_ip_name'))]",
-              "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_wordpress_vnet_name'), 'WEB')]",
-              "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_WEB_nsg_name'))]"
+              "[resourceId('Microsoft.Network/publicIPAddresses', 'WEB-IP')]",
+              "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'wp-vnet', 'WEB')]",
+              "[resourceId('Microsoft.Network/networkSecurityGroups', 'WEB-NSG')]"
           ],
           "properties": {
               "ipConfigurations": [
@@ -422,10 +404,10 @@
                           "privateIPAddress": "192.168.1.4",
                           "privateIPAllocationMethod": "Dynamic",
                           "publicIPAddress": {
-                              "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_WEB_ip_name'))]"
+                              "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'WEB-IP')]"
                           },
                           "subnet": {
-                              "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_wordpress_vnet_name'), 'WEB')]"
+                              "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'wp-vnet', 'WEB')]"
                           },
                           "primary": true,
                           "privateIPAddressVersion": "IPv4"
@@ -438,7 +420,7 @@
               "enableAcceleratedNetworking": true,
               "enableIPForwarding": false,
               "networkSecurityGroup": {
-                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_WEB_nsg_name'))]"
+                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', 'WEB-NSG')]"
               }
           }
       }
