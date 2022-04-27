@@ -14,7 +14,7 @@ Create a new VNET in the WEST US 2 region with the following configuration.
 | WEB Subnet  | 192.168.1.0/24       |
 | SQL Subnet  | 192.168.2.0/24       |
 
-*Note: You can use the ARM template in the [/templates](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%201/templates) folder of this repo to build the VNET and the servers in step 2 below.*
+*Note: You can use the ARM template in the [/templates](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%201/templates) folder of this repo to build the VNET and the servers in [step 2](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%201#2-deploy-linux-vms).*
 
 ## 2. Deploy Linux VMs
 
@@ -45,7 +45,7 @@ After Apache is installed verify that the service is running using the following
 systemctl status apache2
 ```
 
-If Apache isn't running make sure you ran each command in step 3.
+If Apache isn't running make sure you ran each command in [step 3](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%201#3-configure-your-web-server).
 
 ## 5. Configure Your SQL Server
 
