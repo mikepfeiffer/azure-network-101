@@ -2,7 +2,9 @@
 
 Here's how to use the [template](https://github.com/mikepfeiffer/azure-network-101/blob/main/Project%201/templates/azuredeploy.json) to build the network starting point for your VNET + WEB & SQL Servers.
 
-## Create a Resource Group
+## Deploy via Azure CLI
+
+### Create a Resource Group
 
 ```
 az group create \
@@ -10,7 +12,7 @@ az group create \
   --location westus2
 ```
 
-## Deploy the Template
+### Deploy the Template
 
 ```
 az deployment group create \
@@ -18,3 +20,9 @@ az deployment group create \
   --resource-group wordpress-rg \
   --template-file azuredeploy.json
 ```
+
+## Deploy via Azure Portal
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmikepfeiffer%2Fazure-domain-controller%2Fmaster%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
