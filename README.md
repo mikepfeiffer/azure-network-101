@@ -7,7 +7,7 @@ Here are the hands-on projects in this crash course:
 1. [Single VNET Design & Segmentation](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%201)
 2. [Hub-Spoke Network Topology & Shared Services](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%202)
 3. [Load Balancing & Secure Hybrid Networking](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%203)
-4. [Troubleshooting, IaC, & Automation](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%204)
+4. [Infrastructure as Code & Automation](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%204)
 
 You can find the Google [slide deck](https://docs.google.com/presentation/d/1X8aJb24e89HeLSWU0gvbELgIHIkfqQFdUXFbfG0RHVg/edit?usp=sharing) for this crash course series.
 
