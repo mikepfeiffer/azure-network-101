@@ -10,7 +10,7 @@ In this project you'll build a traditional two-tier web app with database and fr
 | WEB Subnet  | 192.168.1.0/24       |
 | SQL Subnet  | 192.168.2.0/24       |
 
-*Note: You can use the ARM template in the /templates folder of this repo to build the VNET and the servers in step 2 below.*
+*Note: You can use the ARM template in the [/templates](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%201/templates) folder of this repo to build the VNET and the servers in step 2 below.*
 
 ## 2. Deploy Linux VMs
 
