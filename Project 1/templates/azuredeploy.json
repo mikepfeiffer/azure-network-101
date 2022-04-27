@@ -165,12 +165,11 @@
                   },
                   "osDisk": {
                       "osType": "Linux",
-                      "name": "[concat(parameters('sql_server_name'), '_OsDisk_SQL_', uniqueString(subscription().subscriptionId))]",
+                      "name": "SQL-OS-DISK",
                       "createOption": "FromImage",
                       "caching": "ReadWrite",
                       "managedDisk": {
-                          "storageAccountType": "Premium_LRS",
-                          "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('sql_server_name'), '_OsDisk_SQL_', uniqueString(subscription().subscriptionId)))]"
+                          "storageAccountType": "Premium_LRS"
                       },
                       "deleteOption": "Delete",
                       "diskSizeGB": 30
@@ -231,12 +230,11 @@
                   },
                   "osDisk": {
                       "osType": "Linux",
-                      "name": "[concat(parameters('web_server_name'), '_OsDisk_WEB_', uniqueString(subscription().subscriptionId))]",
+                      "name": "WEB-OS-DISK",
                       "createOption": "FromImage",
                       "caching": "ReadWrite",
                       "managedDisk": {
-                          "storageAccountType": "Premium_LRS",
-                          "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('web_server_name'), '_OsDisk_WEB_', uniqueString(subscription().subscriptionId)))]"
+                          "storageAccountType": "Premium_LRS"
                       },
                       "deleteOption": "Delete",
                       "diskSizeGB": 30
