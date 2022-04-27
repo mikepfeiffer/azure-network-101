@@ -135,7 +135,7 @@ Implement public DNS by registering an [App Service Domain](https://docs.microso
 * [IPv4 Addressing](https://www.tutorialspoint.com/ipv4/ipv4_addressing.htm)
 * [IPv4 Address Classes](https://www.tutorialspoint.com/ipv4/ipv4_address_classes.htm)
 * [IPv4 Subnetting](https://www.tutorialspoint.com/ipv4/ipv4_subnetting.htm)
-* [Secure and govern workloads with network level segmentation](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation)
+* [Azure network level segmentation](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation)
 * [Azure network security overview](https://docs.microsoft.com/en-us/azure/security/fundamentals/network-overview)
 
 ## Course Index
