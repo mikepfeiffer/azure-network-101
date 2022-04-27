@@ -23,17 +23,19 @@ Next, you'll need servers to act as the web front-end and database servers.
 * Deploy an Ubuntu 18.04 LTS VM into your "WEB" subnet and name this servers "WEB-001"
 * Deploy an Ubuntu 18.04 LTS VM into your "SQL" subnet and name this servers "SQL-001"
 
-*⚠️ Important Note: Make sure you deploy these servers into the correct subnet.*
+*Note: Make sure you deploy these servers into the correct subnet.*
 
 ## 3. Configure Your Web Server
 
-Open the cloud shell and SSH to your WEB server. Run the following commands to update the package sources on the VM and install Apache, PHP, and MySql client libraries for PHP.
+Open the cloud shell and SSH to your WEB server. Run the following commands.
 
 ```
 apt update -y && apt upgrade -y
 apt install apache2 -y
 apt install php php-mysql -y
 ```
+
+This will update the package sources on the VM and install Apache, PHP, and MySql client libraries for PHP.
 
 ## 4. Check Status
 
@@ -43,18 +45,22 @@ After Apache is installed verify that the service is running using the following
 systemctl status apache2
 ```
 
+If Apache isn't running make sure you ran each command in step 3.
+
 ## 5. Configure Your SQL Server
 
-Go back to the cloud shell and SSH to your SQL server. Run the following commands to update the package sources on the VM and install MySQL.
+Go back to the cloud shell and SSH to your SQL server. Run the following commands.
 
 ```
 apt update -y && apt upgrade -y
 apt install mariadb-server mariadb-client -y
 ```
 
+This will update the package sources on the VM and install MySQL.
+
 ## 6. Update MySQL
 
-We need to allow connections from the WEB server in the "WEB" subnet to connect to MySQL server in the "SQL" subnet. Edit the *50-server.cnf* file and change the SQL server IP to the private local IP (192.168.2.4). Use the first command to edit the file with *nano* and then restart MySQL and allow connectivity via the local firewall.
+We need to allow connections from the WEB server in the "WEB" subnet to connect to MySQL server in the "SQL" subnet. Edit the *50-server.cnf* file and change the SQL server IP to the private local IP (192.168.2.4). 
 
 ```
 nano /etc/mysql/mariadb.conf.d/50-server.cnf
@@ -62,9 +68,11 @@ systemctl restart mysql
 ufw allow mysql
 ```
 
+You'll use the first command to edit the file with *nano*, and the remaining commands will restart MySQL and allow connectivity via the local firewall.
+
 ## 7. Create a Database
 
-Open the cloud shell and SSH to the SQL server. Run the following commands to create a new database for wordpress. Notice that we're granting access to a user at a specific IP address... this is the private IP of the web server.
+Open the cloud shell and SSH to the SQL server. Run the following commands to create a new database for wordpress.
 
 ```
 mysql -u root -p
@@ -75,9 +83,11 @@ FLUSH PRIVILEGES;
 Exit;
 ```
 
+Notice that we're granting access to a user at a specific IP address... this is the private IP of the web server.
+
 ## 8. Install Wordpress on WEB Server
 
-Open the cloud shell and SSH to the WEB server. Run the following commands to download and install wordpress.
+Open the cloud shell and SSH to the WEB server. Run the following commands. This will download and install wordpress on the server.
 
 ```
 cd /tmp && wget https://wordpress.org/latest.tar.gz
