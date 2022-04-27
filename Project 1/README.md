@@ -91,14 +91,14 @@ Navigate to the public IP of your web server. Can you get to the wordpress site?
 
 You should have wordpress working at this point, but there's a lot of issues with the current setup. Let's implement some best practices.
 
-* Make sure the IPs on your servers are configured staticitcally
-* Disassociate the NSGs from your servers
-* Create ASGs for both "WEB" and "SQL"
+* Configure the IPs on your servers for static assignment
+* Disassociate the NSGs from both of your servers
+* Create ASGs for both the "WEB" and "SQL" application tiers
 * Configure the SQL NSG to permit MySQL traffic from only the "WEB" ASG
-* Associate your NSGs with their respective subnets (WEB, SQL)
+* Associate your NSGs with their respective subnets (WEB, SQL) in the VNET
 * Disassociate the public IP from your SQL server
 
-Also, we shouldn't SSH directly to the web server. Remove SSH from the web server NSG and make sure it only permits HTTP application traffic. In a future project we'll setup load balancers for the front-end tier.
+Also, we shouldn't SSH directly to the servers. Remove SSH from the web server NSG and make sure it only permits HTTP application traffic. At this stage it should already be disabled for SQL. In a future project we'll setup load balancers for the web tier.
 
 ## 10. Setup Remote Access
 
