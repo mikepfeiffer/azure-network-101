@@ -2,7 +2,7 @@
 
 In this project you'll build a traditional two-tier web app with database and front-end servers.
 
-1. Build and Deploy your VNET
+##1. Build and Deploy your VNET##
 
 | Components  | CIDRs                |
 | ----------- | -----------          |
@@ -12,7 +12,7 @@ In this project you'll build a traditional two-tier web app with database and fr
 
 *Note: You can use the ARM template in the /templates folder of this repo to build the VNET and the servers in step 2 below.*
 
-2. Deploy Linux VMs
+##2. Deploy Linux VMs##
 
 * Deploy an Ubuntu 18.04 LTS VM into your "WEB" subnet and name this servers "WEB-001"
 * Deploy an Ubuntu 18.04 LTS VM into your "SQL" subnet and name this servers "SQL-001"
