@@ -165,12 +165,12 @@
                   },
                   "osDisk": {
                       "osType": "Linux",
-                      "name": "[concat(parameters('sql_server_name'), '_OsDisk_1_1734ef375e974da68a12130ae3a4f500')]",
+                      "name": "[concat(parameters('sql_server_name'), '_OsDisk_SQL_', uniqueString(subscription().subscriptionId))]",
                       "createOption": "FromImage",
                       "caching": "ReadWrite",
                       "managedDisk": {
                           "storageAccountType": "Premium_LRS",
-                          "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('sql_server_name'), '_OsDisk_1_1734ef375e974da68a12130ae3a4f500'))]"
+                          "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('sql_server_name'), '_OsDisk_SQL_', uniqueString(subscription().subscriptionId)))]"
                       },
                       "deleteOption": "Delete",
                       "diskSizeGB": 30
@@ -231,12 +231,12 @@
                   },
                   "osDisk": {
                       "osType": "Linux",
-                      "name": "[concat(parameters('web_server_name'), '_OsDisk_1_78cee991011a492ba6a80751c22e7eff')]",
+                      "name": "[concat(parameters('web_server_name'), '_OsDisk_WEB_', uniqueString(subscription().subscriptionId))]",
                       "createOption": "FromImage",
                       "caching": "ReadWrite",
                       "managedDisk": {
                           "storageAccountType": "Premium_LRS",
-                          "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('web_server_name'), '_OsDisk_1_78cee991011a492ba6a80751c22e7eff'))]"
+                          "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('web_server_name'), '_OsDisk_WEB_', uniqueString(subscription().subscriptionId)))]"
                       },
                       "deleteOption": "Delete",
                       "diskSizeGB": 30
