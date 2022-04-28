@@ -29,5 +29,5 @@ Click the button below to deploy the template.
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-## Go Back to the Project
-[mikepfeiffer/azure-network-101](https://github.com/mikepfeiffer/azure-network-101)
+## Go Back
+[Project: Single VNET Design & Segmentation](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%201)
