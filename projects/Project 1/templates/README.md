@@ -21,3 +21,11 @@ az deployment group create \
   --template-file azuredeploy.json
 ```
 
+### 3. Deploy as a Bicep code
+
+```
+az deployment group create \
+  --name bicep-deployment-001 \
+  --resource-group wordpress-rg \
+  --template-file azuredeploy.bicep
+```
