@@ -18,7 +18,7 @@ Thanks for watching and don't forget to **[subscribe](https://www.youtube.com/ch
 
 ## Author
 
-Mike Pfeiffer
+Mike Pfeiffer<br>
 [@mike_pfeiffer](https://twitter.com/mike_pfeiffer)
 
 ### Version
