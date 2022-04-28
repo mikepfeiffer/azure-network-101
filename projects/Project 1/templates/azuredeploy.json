@@ -85,7 +85,6 @@
               "tier": "Regional"
           },
           "properties": {
-              "ipAddress": "20.236.15.182",
               "publicIPAddressVersion": "IPv4",
               "publicIPAllocationMethod": "Dynamic",
               "idleTimeoutInMinutes": 4,
@@ -102,7 +101,6 @@
               "tier": "Regional"
           },
           "properties": {
-              "ipAddress": "20.230.176.207",
               "publicIPAddressVersion": "IPv4",
               "publicIPAllocationMethod": "Dynamic",
               "idleTimeoutInMinutes": 4,
