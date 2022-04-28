@@ -1,6 +1,6 @@
 # Single VNET Design & Segmentation
 
-Here's how to use the [template](https://github.com/mikepfeiffer/azure-network-101/blob/main/Project%201/templates/azuredeploy.json) to build the network starting point for your VNET + WEB & SQL Servers.
+Here's how to use the [template](https://github.com/mikepfeiffer/azure-network-101/blob/main/projects/Project%201/templates/azuredeploy.json) to build the network starting point for your VNET + WEB & SQL Servers.
 
 ## Deploy via Azure CLI
 
