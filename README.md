@@ -1,5 +1,7 @@
 # Azure Networking Crash Course
 
+![azure-network-crash-course](https://user-images.githubusercontent.com/5126491/165672396-5f13d773-564b-4aac-b132-c54443ca0bca.png)
+
 This is the official repo for my **Azure Networking Crash Course** live stream series on YouTube.
 
 Here are the hands-on projects in this crash course:
