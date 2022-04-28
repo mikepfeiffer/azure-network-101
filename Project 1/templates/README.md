@@ -30,4 +30,4 @@ Click the button below to deploy the template.
 </a>
 
 <br>
-⏪ [Project: Single VNET Design & Segmentation](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%201)
+[⏪ Project: Single VNET Design & Segmentation](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%201)
