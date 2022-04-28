@@ -14,7 +14,7 @@ Create a new VNET in the WEST US 2 region with the following configuration.
 | WEB Subnet  | 192.168.1.0/24       |
 | SQL Subnet  | 192.168.2.0/24       |
 
-*Note: You can use the ARM template in the [/templates](https://github.com/mikepfeiffer/azure-network-101/tree/main/projects/Project%201/templates) folder of this repo to build the VNET and the servers in [step 2](https://github.com/mikepfeiffer/azure-network-101/tree/main/Project%201#2-deploy-linux-vms).*
+*Note: You can use the ARM template in the [/templates](https://github.com/mikepfeiffer/azure-network-101/tree/main/projects/Project%201/templates) folder of this repo to build the VNET and the servers in [step 2](https://github.com/mikepfeiffer/azure-network-101/tree/main/projects/Project%201#2-deploy-linux-vms).*
 
 ## 2. Deploy Linux VMs
 
