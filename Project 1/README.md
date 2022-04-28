@@ -20,8 +20,8 @@ Create a new VNET in the WEST US 2 region with the following configuration.
 
 Next, you'll need servers to act as the web front-end and database servers.
 
-* Deploy an Ubuntu 18.04 LTS VM into your "WEB" subnet and name this servers "WEB-001"
-* Deploy an Ubuntu 18.04 LTS VM into your "SQL" subnet and name this servers "SQL-001"
+* Deploy an Ubuntu 18.04 LTS VM into your "WEB" subnet and name this server "WEB-001"
+* Deploy an Ubuntu 18.04 LTS VM into your "SQL" subnet and name this server "SQL-001"
 
 *Note: Triple check and make sure you deploy these servers into the correct subnets.*
 
