@@ -105,12 +105,12 @@ Navigate to the public IP of your web server. Can you get to the wordpress site?
 
 You should have wordpress working at this point, but there's a lot of issues with the current setup. Let's implement some best practices.
 
-* Configure the IPs on your servers for static assignment
+* Disassociate the public IP from your SQL server
+* Configure the IPs on your servers for static assignment (both public/private)
 * Disassociate the NSGs from both of your servers
 * Create ASGs for both the "WEB" and "SQL" application tiers
 * Configure the SQL NSG to permit MySQL traffic from only the "WEB" ASG
 * Associate your NSGs with their respective subnets (WEB, SQL) in the VNET
-* Disassociate the public IP from your SQL server
 
 Also... we shouldn't SSH directly to the servers. Remove the SSH rule from the web server NSG and make sure it only permits HTTP application traffic. At this stage it should already be disabled for SQL. In a future project we'll setup load balancers for the web tier.
 
@@ -137,6 +137,8 @@ Implement public DNS by registering an [App Service Domain](https://docs.microso
 * [IPv4 Subnetting](https://www.tutorialspoint.com/ipv4/ipv4_subnetting.htm)
 * [Azure network level segmentation](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation)
 * [Azure network security overview](https://docs.microsoft.com/en-us/azure/security/fundamentals/network-overview)
+* [How network security groups filter network traffic](https://docs.microsoft.com/en-us/azure/virtual-network/network-security-group-how-it-works)
+* [Application security groups](https://docs.microsoft.com/en-us/azure/virtual-network/application-security-groups)
 
 ## Course Index
 [mikepfeiffer/azure-network-101](https://github.com/mikepfeiffer/azure-network-101)
