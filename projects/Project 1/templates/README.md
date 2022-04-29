@@ -12,7 +12,7 @@ az group create \
   --location westus2
 ```
 
-### 2. Deploy the Template
+### 2. Deploy the ARM Template (option 1)
 
 ```
 az deployment group create \
@@ -21,7 +21,7 @@ az deployment group create \
   --template-file azuredeploy.json
 ```
 
-### 3. Deploy as a Bicep code
+### 3. Deploy the Bicep Template (option 2)
 
 ```
 az deployment group create \
