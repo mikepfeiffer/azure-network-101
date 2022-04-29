@@ -1,4 +1,4 @@
-# Load Balancing & Secure Hybrid Networking
+# Load Balancing & High Availability
 
 TBD
 
