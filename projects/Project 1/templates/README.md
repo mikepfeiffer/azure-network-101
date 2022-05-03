@@ -1,6 +1,6 @@
 # Single VNET Design & Segmentation
 
-Here's how to use the [template](https://github.com/mikepfeiffer/azure-network-101/blob/main/projects/Project%201/templates/azuredeploy.json) to build the network starting point for your VNET + WEB & SQL Servers.
+You can use ARM, Bicpe, or Terraform to build the network starting point for your VNET + WEB & SQL Servers.
 
 ## Deploy via Azure CLI
 
@@ -29,3 +29,9 @@ az deployment group create \
   --resource-group wordpress-rg \
   --template-file azuredeploy.bicep
 ```
+
+### 4. Deploy via Terramform
+
+Follow these instructions if you'd like to deploy the VNet via Terraform.
+
+[Project 1/Templates/Terraform](https://github.com/mikepfeiffer/azure-network-101/blob/main/projects/Project%201/templates/Terraform/README.md)
