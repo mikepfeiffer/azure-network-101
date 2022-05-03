@@ -12,7 +12,7 @@ az group create \
   --location westus2
 ```
 
-### 2. Deploy the ARM Template (option 1)
+### 2. Deploy via ARM (option 1)
 
 ```
 az deployment group create \
@@ -21,7 +21,7 @@ az deployment group create \
   --template-file azuredeploy.json
 ```
 
-### 3. Deploy the Bicep Template (option 2)
+### 3. Deploy via Bicep (option 2)
 
 ```
 az deployment group create \
@@ -30,6 +30,6 @@ az deployment group create \
   --template-file azuredeploy.bicep
 ```
 
-### 4. Deploy via Terramform
+### 4. Deploy via Terramform (option 3)
 
 Follow [these instructions](https://github.com/mikepfeiffer/azure-network-101/blob/main/projects/Project%201/templates/Terraform/README.md) if you'd like to deploy the VNet via Terraform.
