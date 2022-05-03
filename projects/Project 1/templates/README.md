@@ -30,6 +30,6 @@ az deployment group create \
   --template-file azuredeploy.bicep
 ```
 
-### 4. Deploy via Terramform (option 3)
+### 4. Deploy via Terraform (option 3)
 
 Follow [these instructions](https://github.com/mikepfeiffer/azure-network-101/blob/main/projects/Project%201/templates/Terraform/README.md) if you'd like to deploy the VNet via Terraform.
