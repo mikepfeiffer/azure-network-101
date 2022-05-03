@@ -32,6 +32,4 @@ az deployment group create \
 
 ### 4. Deploy via Terramform
 
-Follow these instructions if you'd like to deploy the VNet via Terraform.
-
-[Project 1/Templates/Terraform](https://github.com/mikepfeiffer/azure-network-101/blob/main/projects/Project%201/templates/Terraform/README.md)
+Follow [these instructions](https://github.com/mikepfeiffer/azure-network-101/blob/main/projects/Project%201/templates/Terraform/README.md) if you'd like to deploy the VNet via Terraform.
