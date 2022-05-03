@@ -1,6 +1,6 @@
 # Single VNET Design & Segmentation
 
-You can use ARM, Bicpe, or Terraform to build the network starting point for your VNET + WEB & SQL Servers.
+You can use ARM, Bicep, or Terraform to build the network starting point for your VNET + WEB & SQL Servers.
 
 ## Deploy via Azure CLI
 
