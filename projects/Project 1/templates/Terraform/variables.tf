@@ -1,7 +1,7 @@
 variable "primary_location" {
   type = string
   description = "Primary Location"
-  default = "UK South"
+  default = "WestUS2"
 }
 
 variable "Web-Prefix" {
