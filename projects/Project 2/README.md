@@ -67,7 +67,7 @@ Try implementing a new connectivity configuration with Azure Network Manager.
 
 * Remove and redeploy a new configuration that supports **Direct Connectivity**
 
-Can you ping the server in spoke 2 from the server in spoke 1 and vice versa? If so, what other ways can you restrict the traffic coming across those VNets? (*hint: we covered it in *[project #1](https://github.com/mikepfeiffer/azure-network-101/tree/main/projects/Project%201)*)
+Can you ping the server in spoke 2 from the server in spoke 1 and vice versa? If so, what other ways can you restrict the traffic coming across those VNets? *(hint: we covered it in [project #1](https://github.com/mikepfeiffer/azure-network-101/tree/main/projects/Project%201))*
 
 Remember, you'll need to consider the local Windows Firewall when you're trying to make things work.
 
