@@ -34,9 +34,9 @@ Let's setup a "shared service" in the "hub" VNet.
 
 ## 4. Configure DNS on Your Spoke Networks
 
-You'll want to make sure new VMs and services deployed to your spoke networks know exactly where to go when accessing the "shared" DNS service.
+* You'll want to make sure new VMs and services deployed to your spoke networks know exactly where to go when accessing the "shared" DNS service.
 
-Configure each spoke VNET and make sure it's handing out your *custom* DNS server address for your shared service. Make sure to double check the IP address to ensure you use the correct one.
+* Configure each spoke VNET and make sure it's handing out your *custom* DNS server address for your shared service. Make sure to double check the IP address to ensure you use the correct one.
 
 ## 5. Use Azure Network Manager to Create a Hub-Spoke Topology
 
@@ -50,8 +50,6 @@ Important note: at the time of writing this guide the Azure Network Manager serv
 4. Deploy the connectivity configuration
 
 Make sure you watch my [demo](https://www.youtube.com/watch?v=g-zDveuQU4E) and review this [doc](https://docs.microsoft.com/en-us/azure/virtual-network-manager/create-virtual-network-manager-portal) for clarity on the steps until I can add more detail here.
-
-*Note: Try implementing two different connectivity configurations. For example, after you setup basic hub-spoke topology remove and redeploy a new configuration that supports **Direct Connectivity** and test it out.*
 
 ## Validate Shared Service Access
 
