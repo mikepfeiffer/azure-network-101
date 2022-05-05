@@ -42,7 +42,7 @@ Let's setup a "shared service" in the "hub" VNet.
 
 We're going to use the new [Azure Network Manager](https://docs.microsoft.com/en-us/azure/virtual-network-manager/create-virtual-network-manager-portal) service to manage connectivity for all our virtual networks.
 
-Important note: at the time of writing this guide the Azure Network Manager service is in preview. You'll need to [manually register the provider](https://docs.microsoft.com/en-us/azure/virtual-network-manager/create-virtual-network-manager-portal#register-subscription-for-public-preview).
+*Important note: at the time of writing this guide the Azure Network Manager service is in preview. You'll need to [manually register the provider](https://docs.microsoft.com/en-us/azure/virtual-network-manager/create-virtual-network-manager-portal#register-subscription-for-public-preview)*
 
 1. Create Virtual Network Manager
 2. Create a network group
@@ -63,7 +63,9 @@ Now that you've got a working hub-spoke topology, think about the best practices
 
 ## Challenge: Set up Direct Connectivity
 
-Try implementing a new connectivity configuration with Azure Network Manager. Remove and redeploy a new configuration that supports **Direct Connectivity**.
+Try implementing a new connectivity configuration with Azure Network Manager.
+
+* Remove and redeploy a new configuration that supports **Direct Connectivity**
 
 Can you ping the server in spoke 2 from the server in spoke 1 and vice versa? If so, what other ways can you restrict the traffic coming across those VNets? (*hint: we covered it in project #1*).
 
