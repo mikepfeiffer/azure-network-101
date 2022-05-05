@@ -49,7 +49,7 @@ We're going to use the new [Azure Network Manager](https://docs.microsoft.com/en
 3. Create a connectivity configuration (leave *Direct Connectivity* disabled)
 4. Deploy the connectivity configuration
 
-Make sure you watch my [demo](https://www.youtube.com/watch?v=g-zDveuQU4E) and review this [doc](https://docs.microsoft.com/en-us/azure/virtual-network-manager/create-virtual-network-manager-portal) for clarity on the steps until I can add more detail here.
+Make sure you watch my demo (coming soon) and review this [doc](https://docs.microsoft.com/en-us/azure/virtual-network-manager/create-virtual-network-manager-portal) for clarity on the steps until I can add more detail here.
 
 ## Validate Shared Service Access
 
