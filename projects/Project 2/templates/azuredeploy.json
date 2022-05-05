@@ -1,0 +1,137 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+
+  },
+  "variables": {
+    "hubVnetPrefix": "192.168.0.0/16",
+    "dmzSubnetName": "AzureFirewallSubnet",
+    "dmzSubnetPrefix": "192.168.0.0/26",
+    "mgmtSubnetName": "AzureBastionSubnet",
+    "mgmtSubnetPrefix": "192.168.1.0/26",
+    "sharedSubnetName": "SharedSubnet",
+    "sharedSubnetPrefix": "192.168.2.0/24",
+    "Spoke1VnetName": "spoke1-vnet",
+    "Spoke1VnetPrefix": "10.10.0.0/16",
+    "Spoke2VnetName": "spoke2-vnet",
+    "Spoke2VnetPrefix": "10.100.0.0/16",
+    "spokeWorkloadSubnetName": "WorkloadSubnet",
+    "Spoke1WorkloadSubnetPrefix": "10.10.1.0/24",
+    "Spoke2WorkloadSubnetPrefix": "10.100.1.0/24",
+    "location": "[resourceGroup().location]"
+  },
+  "resources": [
+    {
+      "comments": "HUB Virtual Network (VNet)",
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "hub-vnet",
+      "apiVersion": "2019-11-01",
+      "location": "[variables('location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[variables('hubVnetPrefix')]"
+          ]
+        },
+        "enableDdosProtection": false,
+        "enableVmProtection": false
+      }
+    },
+    {
+      "comments": "Management Subnet",
+      "type": "Microsoft.Network/virtualNetworks/subnets",
+      "name": "[concat('hub-vnet', '/', variables('mgmtSubnetName'))]",
+      "apiVersion": "2019-11-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', 'hub-vnet')]"
+      ],
+      "properties": {
+        "addressPrefix": "[variables('mgmtSubnetPrefix')]"
+      }
+    },
+    {
+      "comments": "Shared Subnet",
+      "type": "Microsoft.Network/virtualNetworks/subnets",
+      "name": "[concat('hub-vnet', '/', variables('sharedSubnetName'))]",
+      "apiVersion": "2019-11-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', 'hub-vnet')]",
+        "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'hub-vnet', variables('mgmtSubnetName'))]"
+      ],
+      "properties": {
+        "addressPrefix": "[variables('sharedSubnetPrefix')]"
+      }
+    },
+    {
+      "comments": "DMZ Subnet",
+      "type": "Microsoft.Network/virtualNetworks/subnets",
+      "name": "[concat('hub-vnet', '/', variables('dmzSubnetName'))]",
+      "apiVersion": "2019-11-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', 'hub-vnet')]",
+        "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'hub-vnet', variables('mgmtSubnetName'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'hub-vnet', variables('sharedSubnetName'))]"
+      ],
+      "properties": {
+        "addressPrefix": "[variables('dmzSubnetPrefix')]"
+      }
+    },
+    {
+      "comments": "Development Spoke Virtual Network (VNet)",
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "[variables('Spoke1VnetName')]",
+      "apiVersion": "2019-11-01",
+      "location": "[variables('location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[variables('Spoke1VnetPrefix')]"
+          ]
+        },
+        "enableDdosProtection": false,
+        "enableVmProtection": false
+      }
+    },
+    {
+      "comments": "Development Workload Subnet",
+      "type": "Microsoft.Network/virtualNetworks/subnets",
+      "name": "[concat(variables('Spoke1VnetName'), '/', variables('spokeWorkloadSubnetName'))]",
+      "apiVersion": "2019-11-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('Spoke1VnetName'))]"
+      ],
+      "properties": {
+        "addressPrefix": "[variables('Spoke1WorkloadSubnetPrefix')]"
+      }
+    },
+    {
+      "comments": "Production Spoke Virtual Network (VNet)",
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "[variables('Spoke2VnetName')]",
+      "apiVersion": "2019-11-01",
+      "location": "[variables('location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[variables('Spoke2VnetPrefix')]"
+          ]
+        },
+        "enableDdosProtection": false,
+        "enableVmProtection": false
+      }
+    },
+    {
+      "comments": "Production Workload Subnet",
+      "type": "Microsoft.Network/virtualNetworks/subnets",
+      "name": "[concat(variables('Spoke2VnetName'), '/', variables('spokeWorkloadSubnetName'))]",
+      "apiVersion": "2019-11-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('Spoke2VnetName'))]"
+      ],
+      "properties": {
+        "addressPrefix": "[variables('Spoke2WorkloadSubnetPrefix')]"
+      }
+    }
+  ]
+}
