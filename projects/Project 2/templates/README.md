@@ -23,7 +23,12 @@ az deployment group create \
 
 ### 3. Deploy via Bicep (option 2)
 
-Coming soon...
+```
+az deployment group create \
+  --name bicep-deployment-001 \
+  --resource-group hub-spoke-demo \
+  --template-file azuredeploy.bicep
+```
 
 ### 4. Deploy via Terraform (option 3)
 
