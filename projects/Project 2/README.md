@@ -57,9 +57,9 @@ At this point you should have connectivity to the hub VNet from each spoke netwo
 
 1. Connect to the server in the spoke 1 network and make sure the primary DNS server address is set to the "shared" DNS server IP from the "hub" VNet. Use tools like *ping* and *nslookup* to make sure the nodes in spoke 1 can resolve names from the DNS server.
 
-2. Do the same thing for spoke 2. Connect to the server in the spoke 2 network and make sure the primary DNS server address is set to the "shared" DNS server IP from the "hub" VNet. Use tools like *ping* and *nslookup* to make sure the nodes in spoke 1 can resolve names from the DNS server.
+2. Do the same thing for spoke 2. Connect to the server in the spoke 2 network and make sure the primary DNS server address is set to the "shared" DNS server IP from the "hub" VNet. 
 
-Now that you've got a working hub-spoke topology, think about the best practices we covered in [project #1](https://github.com/mikepfeiffer/azure-network-101/tree/main/projects/Project%201). What other controls can you implement to ensure each spoke network is isolated and secured?
+*NOTE: Use tools like *ping* and *nslookup* to make sure the nodes in spoke 1 can resolve names from the DNS server.*
 
 ## 8. Set up Direct Connectivity
 
