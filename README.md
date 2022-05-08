@@ -15,7 +15,7 @@ Here are the hands-on projects in this crash course:
 The Google slide deck for this crash course series is available at 
 [docs.google.com](https://docs.google.com/presentation/d/1X8aJb24e89HeLSWU0gvbELgIHIkfqQFdUXFbfG0RHVg/edit?usp=sharing)
 
-Thanks for watching and don't forget to **[subscribe](https://www.youtube.com/channel/UCuoEOqepPoBrnpL5C3P6Ehg)** to my YouTube channel 📺
+Thanks for watching and don't forget to **[subscribe](https://www.youtube.com/channel/UCuoEOqepPoBrnpL5C3P6Ehg?sub_confirmation=1)** to my YouTube channel 📺
 
 ## Author
 

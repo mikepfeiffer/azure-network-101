@@ -1,6 +1,6 @@
 # Single VNet Design & Network Segmentation
 
-In this project you'll build a traditional two-tier web app with database and front-end servers. To keep things simple we'll use Wordpress.
+In this project you'll build a traditional two-tier web app with database and front-end servers. To keep things simple we'll use Wordpress. You can watch me deploy this project here: [https://www.youtube.com/watch?v=etQMC2O274c](https://www.youtube.com/watch?v=etQMC2O274c)
 
 ![Project 1 Diagram: Single VNET Design & Segmentation](https://user-images.githubusercontent.com/5126491/165755878-30616dfd-1168-45e4-914a-bd223a5fbc1e.png)
 
