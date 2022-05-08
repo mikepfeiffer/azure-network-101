@@ -51,7 +51,7 @@ We're going to use the new [Azure Network Manager](https://docs.microsoft.com/en
 
 Make sure you watch my demo (coming soon) and review this [doc](https://docs.microsoft.com/en-us/azure/virtual-network-manager/create-virtual-network-manager-portal) for clarity on the steps until I can add more detail here.
 
-## Validate Shared Service Access
+## 6. Validate Shared Service Access
 
 At this point you should have connectivity to the hub VNet from each spoke network. Now let's validate the configuration.
 
@@ -61,7 +61,7 @@ At this point you should have connectivity to the hub VNet from each spoke netwo
 
 Now that you've got a working hub-spoke topology, think about the best practices we covered in [project #1](https://github.com/mikepfeiffer/azure-network-101/tree/main/projects/Project%201). What other controls can you implement to ensure each spoke network is isolated and secured?
 
-## Challenge: Set up Direct Connectivity
+## 8. Set up Direct Connectivity
 
 Try implementing a new connectivity configuration with Azure Network Manager.
 
@@ -70,6 +70,20 @@ Try implementing a new connectivity configuration with Azure Network Manager.
 Can you ping the server in spoke 2 from the server in spoke 1 and vice versa? If so, what other ways can you restrict the traffic coming across those VNets? *(hint: we covered it in [project #1](https://github.com/mikepfeiffer/azure-network-101/tree/main/projects/Project%201))*
 
 Remember, you'll need to consider the local Windows Firewall when you're trying to make things work.
+
+## 9. Setup Remote Access
+
+Add a new subnet to your VNET so we can deploy Azure Bastion for remote access.
+
+| Subnet Name        | CIDR            |
+| -----------        | -----------     |
+| AzureBastionSubnet | 192.168.1.0/26  |
+
+Deploy a new Bastion to this subnet and verify that you can still SSH to your servers through it.
+
+## 10. Challenge: Isolate Your Spoke VNets
+
+Take what you've learned from both project #1 and project #2 and implement another layer of isolation. How can you use NSGs/ASGs on the spoke VNets to futher isolate those networks? What scenario's could you test within these environments to reinforce what you've learned?
 
 ## Recommended Reading
 
