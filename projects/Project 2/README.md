@@ -61,17 +61,15 @@ At this point you should have connectivity to the hub VNet from each spoke netwo
 
 *NOTE: Use tools like *ping* and *nslookup* to make sure the nodes in spoke 1 can resolve names from the DNS server.*
 
-## 8. Set up Direct Connectivity
+## 7. Set up Direct Connectivity
 
 Try implementing a new connectivity configuration with Azure Network Manager.
 
 * Remove and redeploy a new configuration that supports **Direct Connectivity**
 
-Can you ping the server in spoke 2 from the server in spoke 1 and vice versa? If so, what other ways can you restrict the traffic coming across those VNets? *(hint: we covered it in [project #1](https://github.com/mikepfeiffer/azure-network-101/tree/main/projects/Project%201))*
+Can you ping the server in spoke 2 from the server in spoke 1 and vice versa? Remember, you'll need to consider the local Windows Firewall when you're trying to make things work.
 
-Remember, you'll need to consider the local Windows Firewall when you're trying to make things work.
-
-## 9. Setup Remote Access
+## 8. Setup Remote Access
 
 Add a new subnet to your VNET so we can deploy Azure Bastion for remote access.
 
@@ -81,7 +79,7 @@ Add a new subnet to your VNET so we can deploy Azure Bastion for remote access.
 
 Deploy a new Bastion to this subnet and verify that you can still SSH to your servers through it.
 
-## 10. Challenge: Isolate Your Spoke VNets
+## Challenge: Isolate Your Spoke VNets
 
 Take what you've learned from both project #1 and project #2 and implement another layer of isolation. How can you use NSGs/ASGs on the spoke VNets to futher isolate those networks? What scenario's could you test within these environments to reinforce what you've learned?
 
