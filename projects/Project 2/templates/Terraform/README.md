@@ -1,6 +1,6 @@
-# Single VNET Design & Segmentation - deployed through Terraform
+# Hub-Spoke Network topology - deployed through Terraform
 
-Here's how to use the terraform deployment files to deploy the Single VNET Design and Virtual machines.
+Here's how to use the terraform deployment files to deploy the Hub-Spoke Demo and Virtual Machines
 
 #### Pre-requisites
 
@@ -15,10 +15,10 @@ Here's how to use the terraform deployment files to deploy the Single VNET Desig
 
 
 1. Open Visual Studio code and clone this repository
-2. Navigate to the Terraform Folder inside of Project 1
+2. Navigate to the Terraform Folder inside of Project 2
 
 ```
- cd '.\projects\Project 1\templates\Terraform\'
+ cd '.\projects\Project 2\templates\Terraform\'
 ```
 3. Initalise Terraform inside of the Terraform folder
    
@@ -37,7 +37,7 @@ az account set --subscription "Insert Subscription name here"
 ```
 ## Deploy resources into Azure via Terraform
 
-As you can see in the folder structure, there is numerous Terraform related files, that end with the ".TF" extension. The "main.tf" file describes what resources are being deployed into Azure. 
+As you can see in the folder structure, there is numerous Terraform related files, that end with the ".TF" extension. In project 1, we only used two terraform files to deploy our resources in Azure. In this project, the Terraform code is split into numerous files, which deploys different types of resources, such as "networks" and "Virtual Machines".
 
 The variables.tf file controls numerous variables that have been set, such as usernames and names for Virtual machines. 
 
@@ -66,4 +66,4 @@ Terraform destroy
 ```
 
 ## Go Back
-[Back to Project 1](https://github.com/mikepfeiffer/azure-network-101/tree/main/projects/Project%201)
+[Back to Project 2](https://github.com/mikepfeiffer/azure-network-101/tree/main/projects/Project%202)
