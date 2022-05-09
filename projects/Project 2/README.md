@@ -1,6 +1,6 @@
 # Hub-Spoke Network Topology & Shared Services
 
-In this project you'll build a simple hub and spoke network topology in Azure.
+In this project you'll build a simple hub and spoke network topology in Azure. You can watch me deploy this project here: [https://www.youtube.com/watch?v=vUF5CoWz-ms](https://www.youtube.com/watch?v=vUF5CoWz-ms)
 
 ![Project 2 Hub-Spoke Network Topology & Shared Services](https://user-images.githubusercontent.com/5126491/166937555-d9b727fc-f9b4-4943-99a5-07d4d5a060ec.jpg)
 
