@@ -4,7 +4,7 @@ resource "azurerm_virtual_machine" "hub-VM" {
   location              = azurerm_resource_group.Main-RG.location
   resource_group_name   = azurerm_resource_group.Main-RG.name
   network_interface_ids = [azurerm_network_interface.Hub-VMnic.id]
-  vm_size               = "Standard_DS1_v2"
+  vm_size               = "Standard_D2S_v3"
 
  storage_image_reference {
     publisher = "MicrosoftWindowsServer"
@@ -48,7 +48,7 @@ resource "azurerm_virtual_machine" "spoke1-VM" {
   location              = azurerm_resource_group.Main-RG.location
   resource_group_name   = azurerm_resource_group.Main-RG.name
   network_interface_ids = [azurerm_network_interface.spoke1-nic.id]
-  vm_size               = "Standard_DS1_v2"
+  vm_size               = "Standard_D2S_v3"
 
  storage_image_reference {
     publisher = "MicrosoftWindowsServer"
@@ -91,7 +91,7 @@ resource "azurerm_virtual_machine" "spoke2-VM" {
   location              = azurerm_resource_group.Main-RG.location
   resource_group_name   = azurerm_resource_group.Main-RG.name
   network_interface_ids = [azurerm_network_interface.spoke2-nic.id]
-  vm_size               = "Standard_DS1_v2"
+  vm_size               = "Standard_D2S_v3"
 
  storage_image_reference {
     publisher = "MicrosoftWindowsServer"
